@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+<head>
+    <title>LockIn: Site Blocker</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./static/landingPage/styles/build.css">
+    <link rel="stylesheet" href="./static/landingPage/styles/custom.css">
+    <script src="./static/landingPage/javascript/script.js" defer></script>
+    <link rel="icon" href="./static/images/favicon.ico" type="image/x-icon">
+</head>
+<body class="w-4/5 min-h-max justify-self-center antialiased ">
+    <div class="flex p-4 justify-between navbar w-dvw fixed top-0 left-0 z-10">
+        <div class="">        
+            <!-- <img class="h-1" src="./static/images/icon.png" alt="logo"> -->
+            <a href="./"><h2 class="font-black  z-10">LockIn.</h2></a>
+        </div>
+        <div class="hidden md:flex gap-8 pr-16">
+            <h3><a href="./#pricing" class="">Pricing</a></h3>
+            <h3><a href="./#how" class="">How Does It Work?</a></h3>
+        </div>
+    </div>
+
+       
+
+        <div class="flex flex-col pt-24 pb-16 gap-5 md:p-4 md:pt-20 lg:pt-0 justify-center md:w-full  lg:h-screen drop-shadow-sm overflow-auto">
+            
+            <h2 id="nth-child-1" class="font-semibold" >
+                Hey! You caught us before we’re ready.
+            </h2>
+            <h2 id="nth-child-2" class="font-normal">We’re working hard to put our finishing touches onto <span class="font-black">Lockin</span>.<br><br>
+                Development is going well and the ultimate blocking app should be ready to help you focus soon. If you’d like us to send you a reminder when we’re ready, just put your email below. You can optionally let us know your OS which helps us prioritize our development.</h2>
+            </h2>
+            <form method="post" action="">
+            {% csrf_token %}
+            {% if error %}{{error}}{% endif %}
+            <div class="flex flex-col mt-8 gap-20  md:mt-4  md:gap-12">
+                   
+                <div id="nth-child-3" class="md: flex flex-col gap-4">
+                    <h2 class="font-semibold">What OS are you using?</h2>
+
+                    <div class="text-base md:text-2xl">
+                            <label>
+                                <input type="radio" name="os" value="windows" class="mr-2"> Windows
+                            </label>
+                            <label>
+                                <input type="radio" name="os" value="macos" class="mr-2"> MacOS
+                            </label>
+                            <label>
+                                <input type="radio" name="os" value="linux" class="mr-2"> Linux
+                            </label>
+                        
+                    </div>
+
+                </div>
+                    <div id="tierDiv" class="hidden">
+                        <input id="tier" type="range" max="4" min="-1"  name="tier" value="-1">
+                    </div>
+
+                    <div id="nth-child-4" class="flex flex-col md:flex-row gap-4 items-center">
+                        <input placeholder="Enter Email:" name='email' class="p-2 rounded-xl border-2 border-black placeholder:text-xl">
+                        <button type=submit class="cursor-pointer pl-4 pr-4 pt-1 pb-1 border-2 border-black rounded-xl bg-green w-fit hover:bg-green-hover duration-150 ease-in-out" id='remindMe' class="text-xl md:text-2xl ">Remind Me</button>
+                    </div>
+            
+            </div>
+
+            </form>
+
+        </div>
+
+  </body>
+</html>
